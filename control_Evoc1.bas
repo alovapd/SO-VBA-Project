@@ -169,35 +169,11 @@ Public Sub removeoptions(frm As UserForm)
 
 End Sub
 
-Public Sub toggle1button(frm As UserForm)
-
-    If frm.cbox1Toggle.Value = True Then
-        For i = 0 To frm.lb_TermReson.ListCount - 1
-            frm.lb_TermReson.Selected(i) = True
-        Next i
-    End If
+Public Sub checkboxSelectAllFromListbox(cbx As MSForms.CheckBox, lst As MSForms.ListBox)
     
-    If frm.cbox1Toggle.Value = False Then
-        For i = 0 To frm.lb_TermReson.ListCount - 1
-            frm.lb_TermReson.Selected(i) = False
-        Next i
-    End If
-
-End Sub
-
-Public Sub toggle2button(frm As UserForm)
-
-    If frm.cbox2Toggle.Value = True Then
-        For i = 0 To frm.lb_TermSelected.ListCount - 1
-            frm.lb_TermSelected.Selected(i) = True
-        Next i
-    End If
-    
-    If frm.cbox2Toggle.Value = False Then
-        For i = 0 To frm.lb_TermSelected.ListCount - 1
-            frm.lb_TermSelected.Selected(i) = False
-        Next i
-    End If
+    For i = 0 To lst.ListCount - 1
+        lst.Selected(i) = cbx.Value
+    Next i
 
 End Sub
 

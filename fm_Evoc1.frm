@@ -17,6 +17,7 @@ Attribute VB_Exposed = False
 
 
 
+
 Private Sub UserForm_Initialize()
     
     control_Evoc1.initializeForm Me
@@ -38,13 +39,13 @@ End Sub
 
 Private Sub cbox1Toggle_Click()
     
-    control_Evoc1.toggle1button Me
+    control_Evoc1.checkboxSelectAllFromListbox Me.cbox1Toggle, Me.lb_TermReson
 
 End Sub
 
 Private Sub cbox2Toggle_Click()
     
-    control_Evoc1.toggle2button Me
+    control_Evoc1.checkboxSelectAllFromListbox Me.cbox2Toggle, Me.lb_TermSelected
 
 End Sub
 
