@@ -2,15 +2,12 @@ Attribute VB_Name = "control_Evoc1"
 
 Public Sub initializeForm(frm As UserForm)
 
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
     Dim rst As Object: Set rst = CreateObject("adodb.recordset")
-    
     Dim x As Integer
 
-    cnn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1;ReadOnly=true"";"
     strsql = "SELECT [ReasonsTerminated] FROM [Customs$] WHERE [ReasonsTerminated] IS NOT NULL ORDER BY [ReasonsTerminated] ASC"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         frm.lb_TermReson.AddItem rst.fields(0).Value
@@ -21,7 +18,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [name] FROM [Customs$] ORDER BY [name] ASC"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         frm.cb_Deputy.AddItem rst.fields(0).Value
@@ -32,7 +29,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [Category] FROM [Customs$] WHERE [Category] IS NOT NULL "
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         frm.cb_Category.AddItem rst.fields(0).Value
@@ -43,7 +40,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [Lighting] FROM [Customs$] WHERE [Lighting] IS NOT NULL "
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         frm.cb_Lighting.AddItem rst.fields(0).Value
@@ -54,7 +51,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [Weather] FROM [Customs$] WHERE [Weather] IS NOT NULL "
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         frm.cb_Weather.AddItem rst.fields(0).Value
@@ -65,7 +62,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [RoadSurface] FROM [Customs$] WHERE [RoadSurface] IS NOT NULL "
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         frm.cb_RoadSurface.AddItem rst.fields(0).Value
@@ -76,7 +73,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [name],[position] FROM [Customs$] WHERE [position] = 'Sergeant' OR [position] = 'Corporal' "
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         If rst.fields(0).Value = "Penkava" Then
@@ -91,7 +88,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [name],[position] FROM [Customs$] WHERE [position] = 'Sergeant'"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         If rst.fields(0).Value = "Penkava" Then
@@ -106,7 +103,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [name],[position] FROM [Customs$] WHERE [position] = 'Lieutenant' "
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         If rst.fields(0).Value = "Penkava" Then
@@ -121,7 +118,7 @@ Public Sub initializeForm(frm As UserForm)
     
     strsql = "SELECT [name],[position] FROM [Customs$] WHERE [position] = 'Captain' "
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         If rst.fields(0).Value = "Penkava" Then

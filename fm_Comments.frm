@@ -14,11 +14,12 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
+
+
 Option Explicit
 
 Private Sub UserForm_Initialize()
     
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
     Dim rst As Object: Set rst = CreateObject("adodb.recordset")
     Dim note As String
     Dim strsql As String
@@ -28,11 +29,9 @@ Private Sub UserForm_Initialize()
     SheetNameData = "Data" & Mid(fm_QueResults.ListBox_DetChoices.List(0), InStrRev(fm_QueResults.ListBox_DetChoices.List(0), "(") + 1, Len(Mid(fm_QueResults.ListBox_DetChoices.List(0), InStrRev(fm_QueResults.ListBox_DetChoices.List(0), "(") + 1)) - 1)
     CaseNumber = Trim(Left(fm_QueResults.ListBox_DetChoices.List(0), InStrRev(fm_QueResults.ListBox_DetChoices.List(0), "(") - 1))
     
-    cnn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1;ReadOnly=true"";"
-    
     strsql = "SELECT [SupComments] FROM [" & SheetNameData & "$] WHERE [CaseNum] = '" & CaseNumber & "'"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     With Me.txt_Notes
         .WordWrap = True

@@ -7,9 +7,3 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
-Private Sub Workbook_Open()
-
-    'ThisWorkbook.Sheets("Customs").Visible = xlVeryHidden
-    'ThisWorkbook.Sheets("Blank Referal Form").Visible = xlVeryHidden
-
-End Sub

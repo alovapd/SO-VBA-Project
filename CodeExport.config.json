@@ -15,7 +15,8 @@
 		"utils": "utils.bas",
 		"fm_QueResults": "fm_QueResults.frm",
 		"m_OutlookOpener": "m_OutlookOpener.bas",
-		"control_Evoc1": "control_Evoc1.bas"
+		"control_Evoc1": "control_Evoc1.bas",
+		"m_NewTools": "m_NewTools.bas"
 	},
 	"References": [
 		{
@@ -24,6 +25,13 @@
 			"GUID": "{0D452EE1-E08F-101A-852E-02608C4D0BB4}",
 			"Major": 2,
 			"Minor": 0
+		},
+		{
+			"Name": "ADODB",
+			"Description": "Microsoft ActiveX Data Objects 6.1 Library",
+			"GUID": "{B691E011-1797-432E-907A-4D8C69339129}",
+			"Major": 6,
+			"Minor": 1
 		}
 	]
 }

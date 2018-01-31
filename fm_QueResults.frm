@@ -17,8 +17,6 @@ Attribute VB_Exposed = False
 Public WhosQueue As String
 Private Sub UserForm_Initialize()
     
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
-    Dim rst As Object: Set rst = CreateObject("adodb.recordset")
     Dim filter As String
     Dim filter2 As String
     Dim filter3 As String
@@ -33,9 +31,7 @@ Private Sub UserForm_Initialize()
     
     strDataBaseSheetNames = "DataEvoc1$,DataEvoc2$,DataDT1$"
     arrDataBaseSheetNames = Split(strDataBaseSheetNames, ",")
-    
-    cnn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1;ReadOnly=true"";"
-    
+        
     Select Case btnPressed
         Case "btn_CheckSgtQue"
             filter = "SergeantApproved"
@@ -75,7 +71,7 @@ Private Sub UserForm_Initialize()
             strsql = "SELECT [CaseNum],[" & filter4 & "] FROM [" & arrDataBaseSheetNames(x) & "] WHERE [" & filter2 & "] IS NOT NULL AND [" & filter4 & "] = '" & filter3 & "'"
         End If
         Debug.Print strsql
-        rst.Open strsql, cnn, 3, 1
+        rst.Open strsql, cnnThisWorkbook, 3, 1
         
         
         Do Until rst.EOF = True
@@ -148,7 +144,6 @@ End Sub
 
 Private Sub btn_View_Click()
     
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
     Dim rst As Object: Set rst = CreateObject("adodb.recordset")
     Dim strsql As String
     Dim SheetName As String
@@ -156,8 +151,6 @@ Private Sub btn_View_Click()
     Dim FormName As String
     
     Me.Hide
-    
-    cnn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1;ReadOnly=true"";"
     
     SheetName = Mid(Me.ListBox_DetChoices.List(0), InStrRev(Me.ListBox_DetChoices.List(0), "(") + 1, Len(Mid(Me.ListBox_DetChoices.List(0), InStrRev(Me.ListBox_DetChoices.List(0), "(") + 1)) - 1)
     CaseNumber = Trim(Left(Me.ListBox_DetChoices.List(0), InStrRev(Me.ListBox_DetChoices.List(0), "(") - 1))

@@ -14,16 +14,13 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
-
 Private Sub UserForm_Initialize()
     
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
     Dim rst As Object: Set rst = CreateObject("adodb.recordset")
 
-    cnn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1;ReadOnly=true"";"
     strsql = "SELECT [name],[position] FROM [Customs$] WHERE [name] IS NOT NULL AND [position] = '" & "Deputy" & "'"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         Me.cb_ReqDep.AddItem rst.fields(0).Value
@@ -34,7 +31,7 @@ Private Sub UserForm_Initialize()
     
     strsql = "SELECT [name],[position] FROM [Customs$] WHERE [name] IS NOT NULL AND [position] = '" & "Sergeant" & "'"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         If rst.fields(0).Value <> "Waldon" Then
@@ -47,7 +44,7 @@ Private Sub UserForm_Initialize()
     
     strsql = "SELECT [name],[position] FROM [Customs$] WHERE [name] IS NOT NULL AND [position] = '" & "Corporal" & "'"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         If rst.fields(0).Value <> "Penkava" Then
@@ -60,7 +57,7 @@ Private Sub UserForm_Initialize()
     
     strsql = "SELECT [Crimes] FROM [Customs$] WHERE [Crimes] IS NOT NULL"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         Me.cb_Crimes.AddItem rst.fields(0).Value

@@ -13,18 +13,16 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-
-
+Option Explicit
 
 Private Sub UserForm_Initialize()
     
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
     Dim rst As Object: Set rst = CreateObject("adodb.recordset")
+    Dim strsql As String
 
-    cnn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1;ReadOnly=true"";"
     strsql = "SELECT [CreateFormSelection] FROM [Customs$] WHERE [CreateFormSelection] IS NOT NULL"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         Me.cb_FormType.AddItem rst.fields(0).Value
@@ -36,18 +34,17 @@ End Sub
 
 Private Sub cb_FormType_Change()
     
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
     Dim rst As Object: Set rst = CreateObject("adodb.recordset")
     Dim SheetName As String
     Dim FormSelection As String
+    Dim strsql As String
     
     FormSelection = Replace(Me.cb_FormType.Value, " ", "")
     SheetName = "Data" & Trim(FormSelection)
     
-    cnn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1;ReadOnly=true"";"
     strsql = "SELECT [CaseNum] FROM [" & SheetName & "$] WHERE [CaseNum] IS NOT NULL"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
     
     Do Until rst.EOF = True
         Me.cb_CaseNum.AddItem rst.fields(0).Value

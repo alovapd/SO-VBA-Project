@@ -14,16 +14,10 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
-
-
-
 Private Sub UserForm_Initialize()
 
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
     Dim rst As Object: Set rst = CreateObject("adodb.recordset")
     Dim filter As String
-
-    cnn.Open "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1;ReadOnly=true"";"
     
     Select Case btnPressed
         Case "btn_CheckSgtQue"
@@ -42,7 +36,7 @@ Private Sub UserForm_Initialize()
     
     strsql = "SELECT [name],[position],[Team],[Division] FROM [Customs$] WHERE lcase([position]) IN (" & filter & ")"
     
-    rst.Open strsql, cnn, 3, 1
+    rst.Open strsql, cnnThisWorkbook, 3, 1
         
     Do Until rst.EOF = True
         If rst.fields("division").Value & "" <> "Traffic" Then
@@ -62,7 +56,6 @@ Private Sub btnSubmit_Click()
     Dim arrUsers As Variant
     Dim User As String
     Dim PassPass As Boolean
-    Dim cnn As Object: Set cnn = CreateObject("adodb.connection")
     Dim rst As Object: Set rst = CreateObject("adodb.recordset")
     Dim strsql As String
     
