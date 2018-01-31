@@ -14,7 +14,8 @@
 		"m_Passes": "m_Passes.bas",
 		"utils": "utils.bas",
 		"fm_QueResults": "fm_QueResults.frm",
-		"m_OutlookOpener": "m_OutlookOpener.bas"
+		"m_OutlookOpener": "m_OutlookOpener.bas",
+		"control_Evoc1": "control_Evoc1.bas"
 	},
 	"References": [
 		{
