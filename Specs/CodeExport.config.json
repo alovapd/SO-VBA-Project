@@ -20,6 +20,9 @@
 		"utils": "../utils.bas",
 		"fm_QueResults": "../fm_QueResults.frm",
 		"m_OutlookOpener": "../m_OutlookOpener.bas",
+		"m_NewTools": "../m_NewTools.bas", 
+		"m_FormUtilities": "../m_FormUtilities.bas", 
+		"SelectAllListBox": "../SelectAllListBox.cls",
 		"Specs_Demo": "Specs_Demo.bas"
 	},
 	"References": [

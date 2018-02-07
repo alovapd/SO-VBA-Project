@@ -140,44 +140,12 @@ Public Sub initializeForm(frm As UserForm)
     
 End Sub
 
-Public Sub addbuttonpush(frm As UserForm)
-    
-    frm.lb_TermSelected.Clear
-    
-    For i = 0 To frm.lb_TermReson.ListCount - 1
-        If frm.lb_TermReson.Selected(i) = True Then frm.lb_TermSelected.AddItem frm.lb_TermReson.List(i)
-    Next i
-    
-End Sub
 
-Public Sub removeoptions(frm As UserForm)
-
-    Dim counter As Integer
-    counter = 0
-    
-    For i = 0 To frm.lb_TermSelected.ListCount - 1
-        If frm.lb_TermSelected.Selected(i - counter) Then
-            frm.lb_TermSelected.RemoveItem (i - counter)
-            counter = counter + 1
-        End If
-    Next i
-    
-    frm.cbox2Toggle.Value = False
-
-End Sub
-
-Public Sub checkboxSelectAllFromListbox(cbx As MSForms.CheckBox, lst As MSForms.ListBox)
-    
-    For i = 0 To lst.ListCount - 1
-        lst.Selected(i) = cbx.Value
-    Next i
-
-End Sub
 
 Public Sub submitform(frm As UserForm)
     
     With frm
-        .Hide
+        '.Hide
         If .FrameApprove.Visible = True Then
             If .obDeny.Value = True Then
                 If .checkBoxAddComments.Value = True Then

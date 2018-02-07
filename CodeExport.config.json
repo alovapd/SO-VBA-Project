@@ -1,6 +1,5 @@
 {
 	"Module Paths": {
-		"ThisWorkbook": "ThisWorkbook.cls",
 		"fm_Request": "fm_Request.frm",
 		"m_Tools": "m_Tools.bas",
 		"RUI": "RUI.bas",
@@ -16,7 +15,8 @@
 		"fm_QueResults": "fm_QueResults.frm",
 		"m_OutlookOpener": "m_OutlookOpener.bas",
 		"control_Evoc1": "control_Evoc1.bas",
-		"m_NewTools": "m_NewTools.bas"
+		"m_NewTools": "m_NewTools.bas",
+		"SelectAllListBox": "SelectAllListBox.cls"
 	},
 	"References": [
 		{
