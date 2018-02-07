@@ -1,0 +1,34 @@
+{
+	"Module Paths": {
+		"Specs": "Specs.bas",
+		"ImmediateReporter": "ImmediateReporter.cls",
+		"SpecDefinition": "SpecDefinition.cls",
+		"SpecExpectation": "SpecExpectation.cls",
+		"SpecSuite": "SpecSuite.cls",
+		"WorkbookReporter": "WorkbookReporter.cls",
+		"fm_Request": "../fm_Request.frm",
+		"m_Tools": "../m_Tools.bas",
+		"RUI": "../RUI.bas",
+		"fm_CID": "../fm_CID.frm",
+		"fm_Comments": "../fm_Comments.frm",
+		"fm_PatSup": "../fm_PatSup.frm",
+		"m_Mailer": "../m_Mailer.bas",
+		"fm_Evoc1": "../fm_Evoc1.frm",
+		"fm_CreateForm": "../fm_CreateForm.frm",
+		"fm_Password": "../fm_Password.frm",
+		"m_Passes": "../m_Passes.bas",
+		"utils": "../utils.bas",
+		"fm_QueResults": "../fm_QueResults.frm",
+		"m_OutlookOpener": "../m_OutlookOpener.bas",
+		"Specs_Demo": "Specs_Demo.bas"
+	},
+	"References": [
+		{
+			"Name": "MSForms",
+			"Description": "Microsoft Forms 2.0 Object Library",
+			"GUID": "{0D452EE1-E08F-101A-852E-02608C4D0BB4}",
+			"Major": 2,
+			"Minor": 0
+		}
+	]
+}
